@@ -19,5 +19,5 @@ from tags import urls as tagsUrls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('tag/', include(tagsUrls))
+    path('tag/', include(tagsUrls))  
 ]
