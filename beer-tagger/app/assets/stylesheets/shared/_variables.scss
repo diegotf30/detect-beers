@@ -1,0 +1,99 @@
+// Font Sizes
+$base-font-size: 13px;
+$small-font-size: 13px * .8;
+$h1-font-size: ceil($base-font-size * 3.75);
+$h2-font-size: ceil($base-font-size * 3);
+$h3-font-size: ceil($base-font-size * 2.375);
+$h4-font-size: ceil($base-font-size * 1.5);
+$h5-font-size: ceil($base-font-size * 1.25);
+$h6-font-size: ceil($base-font-size * 1.125);
+
+// Font Weight
+$header-font-weight: 400;
+
+// Line height
+$base-line-height: 1.5;
+$header-line-height: 1.25;
+
+// Other Sizes
+$base-border-radius: 3px;
+$modal-border-radius: 6px;
+$base-z-index: 0;
+
+// Spacing
+$base-spacing: 8px;
+$double-spacing: 8px * 2;
+$triple-spacing: 8px * 3;
+
+// States
+$states: alert, error, success, notice;
+
+// Colors
+$blue: #48b0f7;
+$light-blue: #daeffd;
+$medium-blue: #112c4f;
+$dark-blue: #2b333b;
+$dark-gray: #333;
+$medium-gray: #999;
+$dividers-color-background: rgba(0, 0, 0, 0.015);
+$purple: #613F75;
+$red: #fe414b;
+$light-red: #fddddd;
+$dark-red: #933432;
+$yellow: #ffeb3b;
+$light-yellow: #fef6dd;
+$dark-yellow: #ffaa00;
+$green: #01c34b;
+$light-green: #cff5f2;
+$white: #ffffff;
+$flash-info-color: #098ae6;
+$whatsapp-color: #5cbe4a;
+$facebook-color: #277adc;
+$outlook-color: #55acee;
+$gmail-color: #ed4b31;
+
+$dividers-color: rgba(0, 0, 0, 0.12);
+$hint-color: rgba(0, 0, 0, 0.38);
+$disabled-color: rgba(0, 0, 0, 0.38);
+$secondary-text-color: rgba(0, 0, 0, 0.60);
+$text-color: rgba(0, 0, 0, 0.87);
+
+// Background Color
+$base-background-color: #fafbfc;
+$overlay-background-color: rgba(37, 40, 43, 0.6);
+$banner-background-color: rgba(0, 0, 0, 0.8);
+
+// Font Colors
+$base-font-color: $dark-gray;
+$base-accent-color: $blue;
+
+// Link Colors
+$base-link-color: $base-accent-color;
+$hover-link-color: darken($base-accent-color, 15);
+$active-link-color: darken($base-accent-color, 30);
+$base-button-color: $base-link-color;
+$hover-button-color: $hover-link-color;
+$active-button-color: $active-link-color;
+
+// State Colors
+$alert-color: $dark-yellow;
+$error-color: $red;
+$success-color: $green;
+$notice-color: $light-blue;
+
+// Flash Colors
+$flash-alert-color: $dark-yellow;
+$flash-error-color: $red;
+$flash-success-color: $green;
+$flash-notice-color: $blue;
+
+$color: $white;
+$color-name: $white;
+$color-states: (alert, $alert-color), (error, $error-color), (notice, $notice-color), (success, $success-color);
+
+// Bos shadow
+$base-shadow: 0 1px 2px 0 rgba(234, 236, 238, 0.8);
+
+// Border color
+$base-border-color: $dividers-color;
+$base-border: 1px solid $base-border-color;

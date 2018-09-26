@@ -1,0 +1,54 @@
+.bold {
+  font-weight: bold;
+}
+
+.muted {
+  @extend .text-muted;  
+}
+
+.border-bottom {
+  border-bottom: $base-border;
+}
+
+.border-top {
+  border-top: $base-border;
+}
+
+.center-button {
+  display: flex;
+  justify-content: center;
+}
+
+.login {
+  width: 600px;
+  padding: 60px;
+  padding-bottom: 20px;
+  margin: 50px auto;
+  margin-bottom: 0;
+}
+
+.registration {
+  @extend .login;
+}
+
+#menu {
+  background-color: #EEEEEE;
+  position: absolute;
+  z-index:100;
+  background-color: black;
+  height: 110px;
+  width: 200px;
+  // display: none;
+
+  .header {
+    color: white;
+  }
+
+  textarea {
+    width: 150px;
+  }
+
+  .buttons {
+
+  }
+}

@@ -1,0 +1,25 @@
+.btn-purple {
+    color: #ffffff;
+    background-color: #bb39d7;
+    border-color: #9a00cd;
+    text-shadow: 1px 1px 0 #9823d5;
+}
+
+.btn-teal {
+    color: #ffffff;
+    background-color: #39b3d7;
+    border-color: #348fd2;
+    text-shadow: 1px 1px 0 #238ed5;
+}
+
+.btn-purple:hover, .btn-purple:focus {
+    color: #000000;
+    background-color: #b13acd;
+    border-color: #8600b9;
+}
+
+.btn-teal:hover, .btn-teal:focus {
+    color: #000000;
+    background-color: #45abcd;
+    border-color: #347abe;
+}

@@ -1,0 +1,4 @@
+// Alerts
+.alert-notice { @extend .alert-primary; }
+.alert-error  { @extend .alert-danger; }
+// Note: warning & success already covered by Boostrap
