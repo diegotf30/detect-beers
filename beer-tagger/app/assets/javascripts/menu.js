@@ -1,5 +1,20 @@
-var selections = [];
-var tags = [];
+function draw_selection(tag) {
+	let boxId = selections.length;
+	// Draw selection
+    $('#imageContainer').append($.parseHTML(`<div class="box box${boxId}" style="width: ${w}px; height: ${h}px; border:3px solid ${tags[tag]}; z-index: ${99 + boxId};"></div>`));
+
+	let box = $(`.box${boxId}`);
+    // Draw selection corners
+    let left = true;
+    for(let i = 0; i < 2; i++) {
+    	$(box).append($.parseHTML(`<div class="corner" style="background-color:${tags[tag]}; top: -5px; ${left ? 'left' : 'right'}: -5px; z-index: ${100 + boxId}"></div>`));
+    	$(box).append($.parseHTML(`<div class="corner" style="background-color:${tags[tag]}; bottom: -5px; ${left ? 'left' : 'right'}: -5px; z-index: ${100 + boxId}"></div>`));	
+    	left = false;
+    }
+    //Move selection to coordinates
+    $(box).css({'left': `${x}px`});
+    $(box).css({'top': `${y}px`});
+}
 
 function save_selection() {
 	let tag = $('#menu .tag').val();
@@ -17,15 +32,7 @@ function save_selection() {
 	if(!(tag in tags)) {
 		tags[tag] = '#' + Math.floor(Math.random()*16777215).toString(16);
 	}
-	let boxId = selections.length;
-	// Draw selection
-	let box = $.parseHTML(`<div class="box box${boxId}" style="width: ${w}px; height: ${h}px; border:3px solid ${tags[tag]}; z-index: ${99 + boxId};"></div>`);
-    $(box).append($.parseHTML(`<div class="corner" style="background-color:${tags[tag]}; top: -5px; left: -5px; z-index: ${100 + boxId}"></div>`));
-    $(box).append($.parseHTML(`<div class="corner" style="background-color:${tags[tag]}; top: -5px; right: -5px; z-index: ${100 + boxId}"></div>`));
-    $(box).append($.parseHTML(`<div class="corner" style="background-color:${tags[tag]}; bottom: -5px; left: -5px; z-index: ${100 + boxId}"></div>`));
-    $(box).append($.parseHTML(`<div class="corner" style="background-color:${tags[tag]}; bottom: -5px; right: -5px; z-index: ${100 + boxId}"></div>`));
-
-	$('.jcrop-tracker').last().append(box);
+	draw_selection(tag);
 
 	// Empty tag name (since menu is hidden, not destroyed)
 	$('#menu .tag').val('');

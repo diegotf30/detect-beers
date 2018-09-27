@@ -1,6 +1,8 @@
 var x, x2, y, y2;
 var w, h;
 var jcrop_api;
+var selections = [];
+var tags = [];
 
 function moveMenu(c) {
 	if(c.w === 0 && c.h === 0) {
@@ -43,7 +45,11 @@ function release_jcrop() {
 }
 
 function setup_jcrop() {
-	if(jcrop_api) jcrop_api.destroy();
+	if(jcrop_api) {
+		jcrop_api.destroy();
+		selections = tags = [];
+		$('.box').remove();
+	}
 
 	$('img').Jcrop({
 		onChange: moveMenu,
