@@ -1,19 +1,70 @@
-<div class="text-center">
-  <h1 class="mt-4">BeerTagger</h1>
-  
-  <div id="imageContainer" class="pt-4">
-    <input id="imgUpload" type="file" onchange="preview_image()">
-    <br>
-    <img src="" height="600">
-  </div>
-</div>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-<div id="menu">
-  <div class="header">
-    Add tag
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<script>
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+
+
+
+<nav class="navbar navbar-default ">
+  <div class="text-center" id="navbarText">
+    <h1 >BeerTagger</h1>
   </div>
-  <textarea></textarea>
-  <div class="buttons">
-    
+</nav>
+
+<div id="tagBody">
+
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#">Upload</a>
+    <a href="#">Save</a>
+    <a href="#">Download</a>
   </div>
+
+  <span style="font-size:30px;cursor:pointer; color: white; margin-left: 3px;" onclick="openNav()">&#9776; Menu </span>
+
+  <div id="activityBox" class="activityWrapper">
+
+
+    <div class="card" style="width: 18rem; margin-bottom: 30px; ">
+      <div class="card-header text-center">
+        Selected objects
+      </div>
+      <ul class="list-group list-group-flush text-center ">
+        <li class="list-group-item">test <br> <a href="#" class="btn btn-primary inverted "><%= inline_svg "delete.svg" %></a> </li>
+        <li class="list-group-item">test <br> <a href="#" class="btn btn-primary inverted"><%= inline_svg "delete.svg" %></a></li>
+        <li class="list-group-item">test <br><a href="#" class="btn btn-primary inverted"><%= inline_svg "delete.svg" %></a></li>
+      </ul>
+    </div>
+
+    <div class="card" style="width: 18rem;">
+      <div class="card-header text-center">
+        Added Images
+      </div>
+      <ul class="list-group list-group-flush text-center">
+        <li class="list-group-item">test </li>
+        <li class="list-group-item">test</li>
+        <li class="list-group-item">test</li>
+      </ul>
+    </div>
+
+
+  </div>
+
+
+
+
+
+
+
 </div>

@@ -52,3 +52,84 @@
 
   }
 }
+
+/* navbar */
+.navbar-default {
+    background-color: #dd7921;
+    border-color: #E7E7E7;
+}
+
+#navbarText{
+  color: #ffffff;
+  letter-spacing: 7px;
+}
+
+#tagBody{
+  background-color: #474543;
+  width: 100%;
+  height: 100%;
+
+}
+
+//////////////////////
+
+.sidenav {
+    height: 100%;
+    padding-top: 70px;
+    width: 0;
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    background-color: #fc7520;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+    text-decoration:none;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 70px;}
+  .sidenav a {font-size: 18px;}
+}
+
+
+#activityBox{
+  right: 0;
+  height: 100%;
+  max-height: 500px;
+  max-width: 300px;
+  padding-right: 3px;
+  padding-top: 5px;
+  display: inline-block;
+  float:right;
+
+}
+
+body{
+  background-color: #5A5A5A;
+}
+
+.inverted{
+  filter: invert(100%);
+}
