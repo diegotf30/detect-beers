@@ -5,7 +5,7 @@ var jcrop_api;
 function moveMenu(c) {
 	if(c.w === 0 && c.h === 0) {
 		$('#menu').hide();
-		$('.jcrop-tracker').unbind('mousemove');
+		x = y = x2 = y2 = 0;
 	}
 	else {
 		$('#menu').show();
@@ -39,6 +39,7 @@ function disable_crop() {
 function release_jcrop() {
 	jcrop_api.release();
 	$('#menu').hide();
+	x = y = x2 = y2 = 0;
 }
 
 function setup_jcrop() {
