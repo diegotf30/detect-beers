@@ -31,25 +31,31 @@
   @extend .login;
 }
 
-#menu {
-  background-color: #EEEEEE;
+.menu {
   position: absolute;
-  z-index:100;
-  background-color: black;
-  height: 110px;
-  width: 200px;
-  // display: none;
+  height: 105px;
+  width: 175px;
+  padding: 10px;
+  background-color: #3D3D3D;
+  border-radius: 5px;
+  z-index: 100;
+  display: none;
 
   .header {
     color: white;
   }
 
-  textarea   {
-    width: 150px;
+  input {
+    width: 155px;
+    background: transparent;
+    color: white;
+    border: 0 none;
+    border-bottom: 2px solid #346FA7;
+    height: 25px;
   }
 
   .buttons {
-
+    margin: 5px 0;
   }
 }
 
@@ -59,9 +65,9 @@
     border-color: #E7E7E7;
 }
 
-#navbarText{
+.navbarText{
   color: #ffffff;
-  letter-spacing: 7px;
+  letter-spacing: 1px;
 }
 
 #tagBody{
@@ -70,49 +76,6 @@
   height: 100%;
 
 }
-
-//////////////////////
-
-.sidenav {
-    height: 100%;
-    padding-top: 70px;
-    width: 0;
-    position: absolute;
-    z-index: 1;
-    left: 0;
-    background-color: #fc7520;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-}
-
-.sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: black;
-    display: block;
-    transition: 0.3s;
-}
-
-.sidenav a:hover {
-    color: #f1f1f1;
-    text-decoration:none;
-}
-
-.sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-}
-
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 70px;}
-  .sidenav a {font-size: 18px;}
-}
-
 
 #activityBox{
   right: 0;
@@ -132,4 +95,14 @@ body{
 
 .inverted{
   filter: invert(100%);
+}
+
+.box {
+  position: absolute;
+}
+
+.corner {
+  position: absolute;
+  height: 8px;
+  width: 8px;
 }
