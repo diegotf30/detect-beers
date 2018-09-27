@@ -1,14 +1,59 @@
-function confirmSelection(c) {
-	$('#menu').show();
-    $('#menu').css({'top': c.y2, 'left': c.x2});
+var x, x2, y, y2;
+var w, h;
+var jcrop_api;
+
+function moveMenu(c) {
+	if(c.w === 0 && c.h === 0) {
+		$('#menu').hide();
+		$('.jcrop-tracker').unbind('mousemove');
+	}
+	else {
+		$('#menu').show();
+		$('#menu').css({'top': c.y, 'left': c.x2 + 10});
+		let offset = $('.jcrop-holder').offset();
+		x = c.x + offset.left;
+		y = c.y + offset.top;
+		x2 = c.x2 + offset.left;
+		y2 = c.y2 + offset.top;
+	}
+}
+
+function disable_crop() {
+	$('.tag').focus();
+
+	$(document).mousemove(function(e) {
+		let menu = $('#menu');
+		//Check if mouse over menu
+		if(e.clientX >= x2 && e.clientX <= x2 + menu.outerWidth() + 10 &&
+			e.clientY >= y && e.clientY <= y + menu.outerHeight() ) {
+			$('.jcrop-tracker').css({'pointer-events' : 'none'});
+		}
+		else {
+			$('.jcrop-tracker').css({'pointer-events' : 'auto'});
+		}
+	});
+}
+
+function release_jcrop() {
+	jcrop_api.release();
+	$('#menu').hide();
 }
 
 function setup_jcrop() {
+	if(jcrop_api) jcrop_api.destroy();
+
 	$('img').Jcrop({
-		onChange: confirmSelection,
-		onSelect: confirmSelection,
+		onChange: moveMenu,
+		onSelect: disable_crop,
 		bgOpacity: 0.35,
       	bgColor: 'black'
+	}, function() {
+		jcrop_api = this;
 	});
+
 	$('.jcrop-holder').css({'margin': '3rem auto'});
+
+	let menu_instance = $('.menu').clone();
+	$(menu_instance).appendTo('.jcrop-holder').attr('id', 'menu');
+	menu_button_events(jcrop_api);
 }

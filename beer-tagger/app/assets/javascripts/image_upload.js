@@ -12,7 +12,7 @@ function preview_image() {
       alert('Solo se permiten imagenes');
     }
     else if (file) {
-       reader.readAsDataURL(file); //reads the data as a URL
+       reader.readAsDataURL(file); //previews image
        setTimeout(setup_jcrop, 35);
     }
     else {
