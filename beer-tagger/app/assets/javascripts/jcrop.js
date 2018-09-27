@@ -15,6 +15,8 @@ function moveMenu(c) {
 		y = c.y + offset.top;
 		x2 = c.x2 + offset.left;
 		y2 = c.y2 + offset.top;
+		w = c.w;
+		h = c.h;
 	}
 }
 

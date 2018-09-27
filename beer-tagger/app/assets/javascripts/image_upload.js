@@ -1,6 +1,9 @@
+var file_path;
+
 function preview_image() {
     var preview = $('img')[0]
     var file    = $('#imgUpload')[0].files[0];
+    file_path   = file.mozFullPath;
     var reader  = new FileReader();
     const isImage = (file) => file['type'].includes('image');
 
