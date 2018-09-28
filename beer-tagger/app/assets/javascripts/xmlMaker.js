@@ -1,19 +1,16 @@
 var xmlList = []; //list that contains all the xml file
 var xmlContent = "";
 
-//file_path
-
-
-function createXml(selectionTagArr, file_path){
+function createXml(){
 	let xmlFile = "<annotation> \n";
 
 	xmlFile.concat(`<path>${file_path}</path> \n`)
-	xmlFile.concat(`<size> \n <width>${selectionTagArr[0].width}</width> \n <height>${selectionTagArr[0].height}</height> \n </size> \n`)
+	xmlFile.concat(`<size> \n <width>${selections[0].width}</width> \n <height>${selections[0].height}</height> \n </size> \n`)
 	let parser = newDOMParser();
 	var xmlDoc;
 
-	for (var i = 0; i < SelectionTagArr.length(); i++) {
-		xmlFile.concat(createXmlObj(SelectionTagArr[i]));
+	for (var i = 0; i < selections.length; i++) {
+		xmlFile.concat(createXmlObj(selections[i]));
 	}
 
 	xmlFile.concat("\n </annotation>");
