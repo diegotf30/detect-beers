@@ -1,40 +1,55 @@
 <nav class="navbar navbar-default ">
-  <div class="text-center navbarText">
-    <h1 >BeerTagger</h1>
-  </div>
+  <h1>BeerTagger</h1>
 </nav>
 
-<div class="body">
-  <div id="imageContainer" class="pt-4">
-    <input id="imgUpload" type="file" onchange="preview_image()">
-    <br>
-    <img src="" height="600">
+<div class="row body">
+  <div class="col toolkit">
+    <div class="row upload-wrapper" data-toggle="tooltip" data-placement="right" title="Importar Imagen">
+      <a class="inverted"><%= inline_svg "add.svg", height: 48, width: 48 %></a>
+      <input id="imgUpload" type="file" onchange="preview_image()">
+    </div>
+
+    <div class="row upload-wrapper save-xml">
+      <a class="inverted" data-toggle="tooltip" data-placement="right" title="Descargar XML">
+        <%= inline_svg "save.svg", height: 48, width: 48 %>
+      </a>
+    </div>
+
+    <div class="row upload-azure">
+        <a class="inverted" data-toggle="tooltip" data-placement="right" title="Subir a Azure">
+          <%= inline_svg "upload.svg", height: 48, width: 48 %>
+        </a>
+    </div>
   </div>
 
-  <div id="activityBox" class="activityWrapper">
-    <div class="card" style="width: 18rem; margin-bottom: 30px; ">
-      <div class="card-header text-center">
-        Selected objects
+  <div id="imageContainer" class="col-lg pt-4">
+    <img id="previewImage" src="">
+  </div>
+
+  <div class="col activityWrapper">
+    <div class="card selections" style="width: 18rem; margin-bottom: 30px; ">
+      <div class="card-header text-center bold">
+        Selecciones
       </div>
       <ul class="list-group list-group-flush text-center ">
-        <li class="list-group-item">test <br> <a href="#" class="btn btn-primary inverted "><%= inline_svg "delete.svg" %></a> </li>
-        <li class="list-group-item">test <br> <a href="#" class="btn btn-primary inverted"><%= inline_svg "delete.svg" %></a></li>
-        <li class="list-group-item">test <br><a href="#" class="btn btn-primary inverted"><%= inline_svg "delete.svg" %></a></li>
+        <li class="list-group-item empty-selec">No hay ninguna selección</li>
       </ul>
     </div>
 
-    <div class="card" style="width: 18rem;">
-      <div class="card-header text-center">
-        Added Images
+    <div class="card paths" style="width: 18rem;">
+      <div class="card-header text-center bold">
+        Imágenes agregadas
       </div>
       <ul class="list-group list-group-flush text-center">
-        <li class="list-group-item">test </li>
-        <li class="list-group-item">test</li>
-        <li class="list-group-item">test</li>
+        <li class="list-group-item empty-paths">No se han agregado imágenes</li>
       </ul>
     </div>
   </div>
 </div>
+
+<%= render "azure_modal" %>
+<%= render "missing_selections_modal" %>
+<%= render "no_image_modal" %>
 
 <!-- Hidden menu -->
 <div class="menu">
@@ -43,8 +58,19 @@
   </div>
   <input class="tag"></input>
   <div class="buttons inverted text-center">
-    <a href="javascript:void(0)" class="mr-2 save"><%= inline_svg 'checkmark.svg' %></a>
-    <a href="javascript:void(0)" class="ml-2 cancel"><%= inline_svg 'tachita.svg' %></a>
+    <a class="mr-2 save"><%= inline_svg 'checkmark.svg' %></a>
+    <a class="ml-2 cancel"><%= inline_svg 'tachita.svg' %></a>
   </div>
 </div>
 <!-- Hidden menu -->
+
+
+<!-- Hidden example selection -->
+<li class="list-group-item ex">
+  <div class="card-col float-left">tag</div>
+  <div class="card-col float-right">
+    <a class="btn btn-primary inverted"><%= inline_svg "delete.svg" %></a>
+    <a class="btn btn-primary ml-1"><%= inline_svg "edit.svg", class: 'inverted' %></a>
+  </div>
+</li>
+<!-- Hidden example selection -->

@@ -19,16 +19,36 @@
   justify-content: center;
 }
 
-.login {
-  width: 600px;
-  padding: 60px;
-  padding-bottom: 20px;
-  margin: 50px auto;
-  margin-bottom: 0;
-}
+.toolkit {
+  background-color: #909090;
+  flex: 0 0 100px;
+  padding: 10px;
+  margin-left: 15px;
+  border-radius: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 
-.registration {
-  @extend .login;
+  .row {
+    margin: 15px 26px;
+  }
+
+  .upload-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+  }
+
+  input:hover {
+    cursor: pointer;
+  }
+
+  input {
+      font-size: 100px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      opacity: 0;
+  }
 }
 
 .menu {
@@ -38,7 +58,7 @@
   padding: 10px;
   background-color: #3D3D3D;
   border-radius: 5px;
-  z-index: 100;
+  z-index: 500;
   display: none;
 
   .header {
@@ -62,35 +82,36 @@
 /* navbar */
 .navbar-default {
     background-color: #dd7921;
-    border-color: #E7E7E7;
+
+    h1 {
+      color: #ffffff;
+      letter-spacing: 1px;
+    }
 }
 
-.navbarText{
-  color: #ffffff;
-  letter-spacing: 1px;
+#previewImage {
+  max-height: 100%;
+  max-width: 100%;
 }
 
-#tagBody{
-  background-color: #474543;
-  width: 100%;
-  height: 100%;
-
+.activityWrapper {
+  flex-grow: 0;
+  margin: 10px;
+  margin-right: 40px;
 }
 
-#activityBox{
-  right: 0;
-  height: 100%;
-  max-height: 500px;
-  max-width: 300px;
-  padding-right: 3px;
-  padding-top: 5px;
-  display: inline-block;
-  float:right;
-
-}
-
-body{
+body {
   background-color: #5A5A5A;
+  height: 100vh; /* For 100% screen height */
+  width:  100vw; /* For 100% screen width */
+
+  .body {
+    height: 85%;
+  }
+}
+
+a {
+  cursor: pointer;
 }
 
 .inverted{
@@ -105,4 +126,30 @@ body{
   position: absolute;
   height: 8px;
   width: 8px;
+}
+
+.modal-header {
+  justify-content: flex-start;
+  position: relative;
+
+  h5 {
+    position: absolute;
+    left: 43%;
+  }
+}
+
+.modal-footer {
+  border-top: 0;
+
+  .btn-primary {
+    color: black;
+  }
+}
+
+.card-col {
+  display: inline-block;
+  margin: 0 auto;
+}
+.ex {
+  display: none;
 }
