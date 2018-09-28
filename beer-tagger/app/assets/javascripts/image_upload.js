@@ -1,8 +1,9 @@
 var file_path;
+var file;
 
 function preview_image() {
     var preview = $('img')[0]
-    var file    = $('#imgUpload')[0].files[0];
+    file        = $('#imgUpload')[0].files[0];
     file_path   = $('#imgUpload').val();
     var reader  = new FileReader();
     const isImage = (file) => file['type'].includes('image');

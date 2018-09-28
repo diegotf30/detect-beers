@@ -1,0 +1,24 @@
+class ExportController < ApplicationController
+  def azure
+    # Setup a specific instance of an Azure::Storage::File::FileService
+    client = Azure::Storage::File::FileService.create(storage_account_name: 'semanai', storage_access_key: 're2elGfvpqHpdK82rOZFYFDTqEZWKneFsuRJpLlzpbLniw5ToNN3JDQE8IyoD4wPx9yh3Au6mQN4p9mc1DOxPw==')
+
+    client.with_filter(Azure::Storage::Common::Core::Filter::ExponentialRetryPolicyFilter.new)
+
+    # Create a share
+    share = client.create_share('test-share')
+
+    # Create a directory
+    directory = client.create_directory(share.name, 'img/covfefe')
+
+    # List shares
+    client.list_shares()
+
+    # # Create a file and update the file content
+    # content = ::File.open('test.jpg', 'rb') { |file| file.read }
+    # file = client.create_file(share.name, directory.name, 'test-file', content.size)
+    # client.put_file_range(share.name, directory.name, file.name, 0, content.size - 1, content)
+
+
+  end
+end
