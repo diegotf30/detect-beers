@@ -1,0 +1,31 @@
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+    $('.toolkit .row').on('click', function() {
+    	$('.tooltip').remove();
+    });
+
+    $('.save-xml').on('click', function() {
+    	if(!file_path) {
+    		$('#no-image-modal').modal('show');
+    	}
+    	else if(selections.length === 0) {
+    		$('#missing-selections-modal').modal('show');
+    	}
+    	else {
+    		createXml();
+    	}
+    });
+
+    $('.upload-azure').on('click', function() {
+    	if(!file_path) {
+    		$('#no-image-modal').modal('show');
+    	}
+    	else if(selections.length === 0) {
+    		$('#missing-selections-modal').modal('show');
+    	}
+    	else {
+    		$('#azureModal').modal('show');
+    		// azure TODO
+    	}
+    });
+});
