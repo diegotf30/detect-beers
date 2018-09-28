@@ -66,11 +66,14 @@
 
 
 <!-- Hidden example selection -->
-<li class="list-group-item ex">
+<li class="list-group-item ex selec">
   <div class="card-col float-left">tag</div>
   <div class="card-col float-right">
-    <a class="btn btn-primary inverted"><%= inline_svg "delete.svg" %></a>
-    <a class="btn btn-primary ml-1"><%= inline_svg "edit.svg", class: 'inverted' %></a>
+    <a class="btn btn-primary inverted delete"><%= inline_svg "delete.svg" %></a>
+    <a class="btn btn-primary ml-1 edit">
+      <%= inline_svg "edit.svg", class: 'inverted' %>
+      <%= inline_svg "tachita.svg", class: 'inverted', style: 'display: none;' %>
+      </a>
   </div>
 </li>
 <!-- Hidden example selection -->

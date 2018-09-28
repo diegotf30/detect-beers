@@ -9,6 +9,7 @@ function add_to_card(tag) {
 
 	$('.selections ul').append(new_row);
 	$(`.selec${selecId} .float-left`).text(tag);
+	selection_events(selecId);
 }
 
 function draw_selection(tag) {
