@@ -1,14 +1,27 @@
+function add_to_card(tag) {
+	$('.empty-selec').remove();
+
+	let selecId = selections.length;
+	let new_row = $('.ex').clone();
+	new_row.addClass(`selec${selecId}`);
+	new_row.removeClass('ex');
+	new_row.css({display: 'unset'});
+
+	$('.selections ul').append(new_row);
+	$(`.selec${selecId} .float-left`).text(tag);
+}
+
 function draw_selection(tag) {
 	let boxId = selections.length;
 	// Draw selection
-    $('#imageContainer').append($.parseHTML(`<div class="box box${boxId}" style="width: ${w}px; height: ${h}px; border:3px solid ${tags[tag]}; z-index: ${99 + boxId};"></div>`));
+    $('.body').append(`<div class="box box${boxId}" style="width: ${w}px; height: ${h}px; border:3px solid ${tags[tag]}; z-index: ${99 + boxId};"></div>`);
 
 	let box = $(`.box${boxId}`);
     // Draw selection corners
     let left = true;
     for(let i = 0; i < 2; i++) {
-    	$(box).append($.parseHTML(`<div class="corner" style="background-color:${tags[tag]}; top: -5px; ${left ? 'left' : 'right'}: -5px; z-index: ${100 + boxId}"></div>`));
-    	$(box).append($.parseHTML(`<div class="corner" style="background-color:${tags[tag]}; bottom: -5px; ${left ? 'left' : 'right'}: -5px; z-index: ${100 + boxId}"></div>`));	
+    	$(box).append(`<div class="corner" style="background-color:${tags[tag]}; top: -5px; ${left ? 'left' : 'right'}: -5px; z-index: ${100 + boxId}"></div>`);
+    	$(box).append(`<div class="corner" style="background-color:${tags[tag]}; bottom: -5px; ${left ? 'left' : 'right'}: -5px; z-index: ${100 + boxId}"></div>`);	
     	left = false;
     }
     //Move selection to coordinates
@@ -30,9 +43,10 @@ function save_selection() {
 
 	// Assign random color to tag class
 	if(!(tag in tags)) {
-		tags[tag] = '#' + Math.floor(Math.random()*16777215).toString(16);
+		tags[tag] = random_color();
 	}
 	draw_selection(tag);
+	add_to_card(tag);
 
 	// Empty tag name (since menu is hidden, not destroyed)
 	$('#menu .tag').val('');
