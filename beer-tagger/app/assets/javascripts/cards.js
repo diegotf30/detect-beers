@@ -75,4 +75,20 @@ function selection_events(id) {
 
 		bool = !bool;
 	});
+
+	$(`.selec${id}`).on('mouseenter', function() {
+		let color = $(`.box${id}`).children().first().css('background-color');
+		$(`.box${id}`).css({'background-color': random_color()});
+		$(`.box${id}`).css({'opacity': 0.2});
+	});
+
+	$(`.selec${id}`).on('mouseleave', function() {
+		$(`.box${id}`).css({'background-color': 'unset'});
+		$(`.box${id}`).css({'opacity': 1});
+	});
+
+	$(`.box${id}`).on('mouseover', function() {
+		// $(`.box${id}`).css({'background-color': 'unset'});
+		console.log('test');
+	});
 }

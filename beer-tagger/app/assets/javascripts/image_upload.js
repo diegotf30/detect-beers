@@ -16,6 +16,8 @@ function preview_image() {
       alert('Solo se permiten imagenes');
     }
     else if(file) {
+      preview.src = "";
+      $('#previewImage').css({'width': 'unset', 'height': 'unset'});
       //Add card info
       $('.selections ul').empty().append(`<li class="list-group-item empty-selec">No hay ninguna selección</li>`);      
       $('.empty-paths').remove();

@@ -17,10 +17,10 @@ function createXml(){
 	let xmlFile = "<annotation> \n";
 
 	xmlFile = xmlFile.concat(`<path>${file_path}</path> \n`)
-	xmlFile.concat(`<size> \n <width>${selections[0].width}</width> \n <height>${selections[0].height}</height> \n </size> \n`)
-
+	xmlFile = xmlFile.concat(`<size> \n\t<width>${selections[0].width}</width> \n\t<height>${selections[0].height}</height>\n</size> \n`)
+	console.log(selections);
 	for (var i = 0; i < selections.length; i++) {
-		xmlFile.concat(createXmlObj(selections[i]));
+		xmlFile = xmlFile.concat(createXmlObj(selections[i]));
 	}
 
 	xmlFile = xmlFile.concat("\n </annotation>");
@@ -32,13 +32,13 @@ function createXml(){
 function createXmlObj(selectionTag){
 	let objText = "<object> \n";
 
-	objText= objText.concat(`<name>${selectionTag.tag}</name> \n`);
-	objText= objText.concat("<pose>Unspecified</pose> \n <truncated>0</truncated> \n <difficult>0</difficult>");
-	objText= objText.concat(`<bndBox> \n <xmin>${selectionTag.top_left.x}</xmin> \n`);
-	objText= objText.concat(`<ymin>${selectionTag.top_left.y}</ymin> \n`);
-	objText= objText.concat(`<xmax>${selectionTag.bot_right.x}</xmax> \n`);
-	objText= objText.concat(`<ymax>${selectionTag.bot_right.y}</ymax> \n </bndBox \n`);
-	objText= objText.concat(`</object> \n`);
+	objText= objText.concat(`\t<name>${selectionTag.tag}</name>\n`);
+	objText= objText.concat("\t<pose>Unspecified</pose>\n\t<truncated>0</truncated>\n\t<difficult>0</difficult>\n");
+	objText= objText.concat(`\t<bndBox>\n\t\t<xmin>${selectionTag.top_left.x}</xmin>\n`);
+	objText= objText.concat(`\t\t<ymin>${selectionTag.top_left.y}</ymin> \n`);
+	objText= objText.concat(`\t\t<xmax>${selectionTag.bot_right.x}</xmax> \n`);
+	objText= objText.concat(`\t\t<ymax>${selectionTag.bot_right.y}</ymax> \n\t</bndBox> \n`);
+	objText= objText.concat(`</object> \n\n`);
 
 	return objText;
 
